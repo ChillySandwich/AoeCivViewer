@@ -8,3 +8,7 @@ export interface ICivilization {
     team_bonus: string;
     civilization_bonus: string[];
 }
+
+export interface IMenuAppBarProps{
+    name: string;
+}

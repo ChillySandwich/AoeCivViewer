@@ -8,20 +8,20 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 
-async function fetchPosts() {
+async function fetchCiv() {
 
   const { data } = await axios.get(`${process.env.NEXT_PUBLIC_CORS_ANYWHERE_ROUTE}https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations`)
   return data
 }
 
 
-const Home: NextPage = () => {
-  const { isLoading, error, isError, data } = useQuery("getCivs", fetchPosts)
+const Civilizations: NextPage = () => {
+  const { isLoading, error, isError, data } = useQuery("getCivs", fetchCiv)
 
   if (isLoading) {
     return (
       <>
-        <MenuAppBar />
+        <MenuAppBar name={"Age of Empires II Civilizations"}/>
         <Grid container justifyContent='center' alignItems= "center" spacing={1}>
 
           <Grid item xs={12} sm={6} md={4} xl={3}>
@@ -48,16 +48,16 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <MenuAppBar />
-      <Grid container alignItems="right" justifyContent="right" spacing={3}>
+      <MenuAppBar name={"Age of Empires II Civilizations"}/>
+      <Grid container spacing={3} sx={{alignItems:'flex-between'}}>
 
         {
           data.civilizations.map((civ: ICivilization) => {
             return (
 
-              <Grid item alignItems={"right"} justifyContent={"right"} xs={12} sm={6} md={4} xl={3} key={civ.id}>
+              <Grid item sx={{justifyContent: 'center'}} xs={12} sm={6} md={4} xl={3} key={civ.id}>
 
-                {isLoading ? <SkeletonCard /> : <CivCard name={civ.name} armyType={civ.army_type} teamBonus={civ.team_bonus} />}
+                <CivCard data-testid={civ.id} id={civ.id} name={civ.name} armyType={civ.army_type} teamBonus={civ.team_bonus} />
 
               </Grid>
 
@@ -72,4 +72,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Civilizations

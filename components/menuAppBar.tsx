@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box, Toolbar, IconButton, Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar';
+import { IMenuAppBarProps } from '../interfaces/dataInterfaces';
 
-export const MenuAppBar = () => {
+export const MenuAppBar = (props: IMenuAppBarProps) => {
+  const { name } = props
     return (
       <Box sx={{ flexGrow: 1, pb: 5 }}>
         <AppBar position="static">
@@ -16,7 +18,7 @@ export const MenuAppBar = () => {
             >
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Age of Empires II Civilizations
+              {name}
             </Typography>
           </Toolbar>
         </AppBar>
