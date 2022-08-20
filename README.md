@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+###Age of Empires Civiliazation Viewer
 
-Playing with React-Query, as well as Jest and React Testing library for unit testing.
+An opportunity to play with React-Query, as well as Jest and React Testing library for unit testing.
 
-
+Hit the [AOE API](https://age-of-empires-2-api.herokuapp.com/docs/) which contains resources relating to Age of Empires II. Great game... if only I could get good at it...
 
 
 ## Getting Started
